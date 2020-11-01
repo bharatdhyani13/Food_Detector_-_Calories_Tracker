@@ -16,15 +16,15 @@ Get the custom weights after training and paste them into the 'data' folder of t
 
 ## Workflow
 1) Go to the webpage : 
-<img src="https://github.com/bharatdhyani13/Food_Detector_and_Calories_Tracker/tree/main/data/images/c.png" width="200">
+<img src="https://github.com/bharatdhyani13/Food_Detector_and_Calories_Tracker/blob/main/data/images/c.PNG" width="200">
 2) Now select Choose Image option and browse a clear image of your food: 
-<img src="https://github.com/bharatdhyani13/Food_Detector_and_Calories_Tracker/tree/main/data/images/choose.png" width="200">
+<img src="https://github.com/bharatdhyani13/Food_Detector_and_Calories_Tracker/tree/main/data/images/choose.PNG" width="200">
 3) Click on the Predict Button and wait for 10-15 seconds for the algorithm to run its predictions: 
-<img src="https://github.com/bharatdhyani13/Food_Detector_and_Calories_Tracker/tree/main/data/images/predict.png" width="200">
+<img src="https://github.com/bharatdhyani13/Food_Detector_and_Calories_Tracker/tree/main/data/images/predict.PNG" width="200">
 4) A pop up will apear with the predicted image, you can now choose the option to get various recipies for the food that was predicted : 
-<img src="https://github.com/bharatdhyani13/Food_Detector_and_Calories_Tracker/tree/main/data/images/get_recipe.png" width="200">
+<img src="https://github.com/bharatdhyani13/Food_Detector_and_Calories_Tracker/tree/main/data/images/get_recipe.PNG" width="200">
 5) The cards will give you the exact Kcal count of the recipe with their most essential nutrients content : 
-<img src="https://github.com/bharatdhyani13/Food_Detector_and_Calories_Tracker/tree/main/data/images/recipe.png" width="200">
+<img src="https://github.com/bharatdhyani13/Food_Detector_and_Calories_Tracker/tree/main/data/images/recipe.PNG" width="200">
 
 ## Result on Images
 
