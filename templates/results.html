@@ -1,0 +1,14 @@
+{% extends "base.html" %} {% block content %}
+
+<h2>Image Classifier</h2>
+
+<div>
+    
+    <div class="gallery">
+        <a target="_blank" href="_blank">
+            <img src="{{url_for('static', filename='detections/detection.png')}}" alt="Detected Image" height="700" width="700">
+        </a>
+    </div>
+</div>
+
+{% endblock %}

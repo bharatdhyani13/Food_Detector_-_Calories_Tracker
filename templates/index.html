@@ -1,0 +1,139 @@
+{% extends "base.html" %} {% block content %}
+      <!-- carousel -->
+      <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+              <img src="/static/food.jpg" id="carou" class="d-block w-100" alt="...">
+              <div class="carousel-caption d-none d-md-block">
+                <a href="#first_row" class="text-decoration-none" style="color: #f3f3f3;">
+                <svg width="5em" height="4em" viewBox="0 0 16 16" class="bi bi-chevron-down" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/>
+                  </svg>
+                </a>
+              </div>
+        </div>
+      </div>
+    </div>
+    <!-- selection of images -->
+    <div class="row" id="first_row" style="margin:auto">
+<div  id="image_section" class="col-lg-6">
+    <blockquote class="blockquote">
+        <h3 class="d-flex justify-content-center" style="color:black">Nutrition Detection</h3><br>
+        <p class="lead">If you are trying to improve your diet, health experts recommend you try to monitor how much you eat each day, eat a wide variety of foods, base your diet on cereals and whole grains, and increase fruit and vegetable consumption. <br>
+            Also, drink plenty of water and reduce consumption of fat, salt and sugar.<br>
+            This app helps to calculate the nutrients in your meal by just posting a picture of it. Lets get started then.
+        </p>
+      </blockquote>
+      <dl class="row">
+        <dt class="col-sm-1">1.</dt>
+        <dd class="col-sm-11">Browse the image of the food that you want to choose.</dd>
+        <dt class="col-sm-1 text-truncate">2.</dt>
+        <dd class="col-sm-11">Click on the Predict Button to run the detection algorithm.</dd>
+        <dt class="col-sm-1">3.</dt>
+        <dd class="col-sm-11">Now just wait for the results.</dd>
+    </dl>
+</div>
+<div  id="image_section" class="col-lg-6 d-flex justify-content-center" style="background-color:#434445;" id="verticalLine">
+    <div class="row">
+    <form id="upload-file" method="post" enctype="multipart/form-data">
+        <label for="imageUpload" class="upload-label">
+            Choose Image...
+        </label>
+        <input type="file" name="file" id="imageUpload" accept=".png, .jpg, .jpeg">
+    </form>
+</div>
+<div class="row" id="thumb" style="padding:20px;">
+<div class="col-sm-3">
+    <svg width="20em" height="18rem" viewBox="0 0 16 16" class="bi bi-arrow-up-left" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+        <path fill-rule="evenodd" d="M2 2.5a.5.5 0 0 1 .5-.5h6a.5.5 0 0 1 0 1H3.707l10.147 10.146a.5.5 0 0 1-.708.708L3 3.707V8.5a.5.5 0 0 1-1 0v-6z"/>
+      </svg></div></div>
+<!-- first_row -->
+<div class="row">
+    <div class="image-section" style="display:none;padding:50px;">
+        <div class="img-preview">
+            <div id="imagePreview">
+            </div>
+        </div>
+        <div>
+            <button type="button" class="btn" id="btn-predict">Predict!</button>
+        </div>
+    </div>
+</div>
+<br>
+<div class="row">
+    <div class="loader" style="display:none;"></div>
+    <div style="padding:50px;" class="row" id="loader"><p style="color:white" class="lead">Please wait while we are detecting the image.</p></div>
+</div>
+    <br>
+  <div class="offset-1 d-flex flex-column-reverse">
+    <button type="button" class="btn" id="show-modal"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-camera" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+      <path fill-rule="evenodd" d="M15 12V6a1 1 0 0 0-1-1h-1.172a3 3 0 0 1-2.12-.879l-.83-.828A1 1 0 0 0 9.173 3H6.828a1 1 0 0 0-.707.293l-.828.828A3 3 0 0 1 3.172 5H2a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1zM2 4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2h-1.172a2 2 0 0 1-1.414-.586l-.828-.828A2 2 0 0 0 9.172 2H6.828a2 2 0 0 0-1.414.586l-.828.828A2 2 0 0 1 3.172 4H2z"/>
+      <path fill-rule="evenodd" d="M8 11a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5zm0 1a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z"/>
+      <path d="M3 6.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0z"/>
+    </svg></button>
+  </div>
+
+<!-- image output -->
+<div class="modal" id="getCodeModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Detected Image:</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+                <a target="_blank" href="_blank">
+                    <img id ="image_result" src="" alt="Detected Image Will Appear here" height="300" width="300">
+                </a>
+                 <!-- text output -->
+        <span>
+        <h5 id="result"> Detections :
+        </h5></span>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+<div class="row" id="second_row" style="margin:auto;background-color:#f8f9fa;">
+  <div class="col-3">
+    <h5> Recipe Search :
+  </h5>
+   </div>
+ <div class="input-group col-6">
+   <input id="search_food" type="text" class="form-control" placeholder="Search Recipe" 
+   aria-label="Recipient's Username" aria-describedby="button-addon2"/>
+   <div class="input-group-append">
+  <button class="btn btn-outline secondary"
+  type="button"
+  id="search">Search</button>   
+  </div>
+ </div>
+</div>
+ <div class="row d-flex justify-content-center" id="third_row" style="margin:auto;">
+ </div>
+
+<div class="row" id="fourth_row" style="margin:auto;background-color:#434445;">
+<div class="col-6 offset-3 d-flex justify-content-center">
+  <div id="btn-webcam">
+    <a class="animated-word">OPEN WEBCAM!</a>
+  </div>
+</div>
+  <!-- <div class="col-3 offset-9"> -->
+  <!-- <button type="button" class="btn btn-info btn-lg " id="btn-webcam">Open Webcam!</button> -->
+  <span id="result_cam">
+      <h5>
+          <br>
+          Please wait while webcam is starting...<br></h5>
+          <p class="lead"><b>Move your items closer to the webcam to detect. </b><br></p>
+          <p class="text-danger">Please press Q to quit webcam!</p>
+      </span>
+<!-- </div> -->
+</div>
+
+{% endblock %}
