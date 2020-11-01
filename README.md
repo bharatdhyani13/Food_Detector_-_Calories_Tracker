@@ -1,7 +1,7 @@
 # Covid_Safety_Detector_Yolov4
 Face Detection using Yolov4 which tells weather a person is wearing a mask, not wearing a mask or wearing a mask but is not safe.
 
-![](https://github.com/bharatdhyani13/Covid_Safety_Detector_Yolov4/blob/main/detections/detection4.png)
+![](https://github.com/bharatdhyani13/Food_Detector_and_Calories_Tracker/blob/main/detections/detection3.png)
 
 # Getting Started
 Download all the prerequisits from requirement.txt or requirement-gpu.txt.
