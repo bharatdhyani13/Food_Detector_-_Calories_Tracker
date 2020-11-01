@@ -35,16 +35,21 @@ Get the custom weights after training and paste them into the 'data' folder of t
 
 <img src="https://github.com/bharatdhyani13/Food_Detector_and_Calories_Tracker/blob/main/data/images/recipe.PNG">
 
+6) You can also start the webcam to detect your food over live video stream.
+
 ## Result on Images
 
-<img src="https://github.com/bharatdhyani13/Covid_Safety_Detector_Yolov4/blob/main/detections/detection1.png" width="400">
-<img src="https://github.com/bharatdhyani13/Covid_Safety_Detector_Yolov4/blob/main/detections/detection2.png" width="400">
-<img src="https://github.com/bharatdhyani13/Covid_Safety_Detector_Yolov4/blob/main/detections/detection3.png" width="400">
+<img src="https://github.com/bharatdhyani13/Covid_Safety_Detector_Yolov4/blob/main/detections/detection6.png" width="400">
+<img src="https://github.com/bharatdhyani13/Covid_Safety_Detector_Yolov4/blob/main/detections/detection5.png" width="400">
+<img src="https://github.com/bharatdhyani13/Covid_Safety_Detector_Yolov4/blob/main/detections/detection4.png" width="400">
 
+As you can see it predicts 2 peppers correctly but 1 is confused with apple. This happens because this is a custom dataset and for the training it was supposed to train for max_batches = 118000 (according to the calculations for 59 classes). The estimated time for it to train was 230 hours (on google cloud). I trained it for around 12000 batches (around 32 hours) and saved the weights, so hence the accuracy of the model is low. However this model can be picked up from where it was last trained and continue anytime when we need more accuracy.
+
+While trying the website, I request to to add the image which is clear, separate and belong to the list of 59 classes that the model was trained on.
 
 ## Result on Videos
 
-See v.avi from here : (https://github.com/bharatdhyani13/Covid_Safety_Detector_Yolov4/blob/main/detections/)
+See v.avi from here : (https://github.com/bharatdhyani13/Food_Detector_and_Calories_Tracker/tree/main/detections)
 
 # Sources
 https://github.com/theAIGuysCode/tensorflow-yolov4-tflite
